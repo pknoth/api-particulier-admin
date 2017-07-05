@@ -1,0 +1,26 @@
+h1 Listing tokens
+
+table.table.table-stripped
+  thead
+    tr
+      th Token
+      th Name
+      th Email
+      th
+      th
+      th
+
+  tbody
+    - @tokens.each do |token|
+      tr
+        td = token._id
+        td = token.name
+        td = token.email
+        td
+            = link_to 'Show', token, class: 'btn btn-xs btn-primary'
+        td = link_to 'Edit', edit_token_path(token), class: 'btn btn-xs btn-success'
+        td = link_to 'Destroy', token, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'
+
+br
+
+= link_to 'New Token', new_token_path
