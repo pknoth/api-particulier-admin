@@ -21,7 +21,7 @@ module AdminApiParticulier
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config.assets.prefix = "/admin"
+    config.assets.prefix = "/admin/assets"
     # Mongoid generators
     config.generators do |g|
       g.orm :mongoid
