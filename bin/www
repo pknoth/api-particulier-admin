@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /opt/apps/api-particulier-admin/api-particulier-admin
+puma -e production

@@ -17,7 +17,7 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
-vagrant:
+production:
   clients:
     default:
       database: api-particulier
