@@ -1,0 +1,28 @@
+development:
+  clients:
+    default:
+      database: api-particulier
+      hosts:
+        - localhost:27017
+      options:
+  options:
+    app_name: api-particulier-admin
+test:
+  clients:
+    default:
+      database: api-particulier-test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+vagrant:
+  clients:
+    default:
+      database: api-particulier
+      hosts:
+        - <%= ENV['MONGODB_URI'] || 'localhost:27017' %>
+      options:
+  options:
+    app_name: api-particulier-admin

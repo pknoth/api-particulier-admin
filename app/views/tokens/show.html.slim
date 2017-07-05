@@ -1,0 +1,13 @@
+p
+  strong Id:
+  = @token._id
+p
+  strong Name:
+  = @token.name
+p
+  strong Email:
+  = @token.email
+
+= link_to 'Edit', edit_token_path(@token)
+'|
+= link_to 'Back', tokens_path
