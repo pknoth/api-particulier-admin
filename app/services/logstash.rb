@@ -7,14 +7,17 @@ class Logstash
     @client = Elasticsearch::Client.new
   end
 
-  def last_100_by_name(name)
+  def count_by_name(name)
     definition = search do
       size 100
-      query { match 'consumer.name' => name }
+      query { match 'consumer.organisation' => name }
     end
-    client.search(
+    res = client.search(
       index: 'logstash-api-particulier-*',
-      body: definition.to_hash
-    ).to_a
+      body: definition.to_hash,
+      sort: [{ '@timestamp' => { order: 'desc' } }],
+      size: 100
+    )
+    res['hits']['total']
   end
 end

@@ -10,13 +10,13 @@ p
   strong Email:
 p
   = @token.email
+p
+  strong> Call count:
+  = @log_count
 
 = link_to 'Edit', edit_token_path(@token)
 span<>
   | |
 = link_to 'Back', tokens_path
 
-- if @log_rows
-  ul.list-group
-    - @log_rows.each do |row|
-      li.list-group-item = row.inspect
+
