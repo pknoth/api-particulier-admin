@@ -9,15 +9,12 @@ class Logstash
 
   def count_by_name(name)
     definition = search do
-      size 100
       query { match 'consumer.organisation' => name }
     end
-    res = client.search(
+    res = client.count(
       index: 'logstash-api-particulier-*',
       body: definition.to_hash,
-      sort: [{ '@timestamp' => { order: 'desc' } }],
-      size: 10_000_000
     )
-    res['hits']['total']
+    res['count']
   end
 end
