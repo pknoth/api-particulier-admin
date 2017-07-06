@@ -52,7 +52,7 @@ environment ENV.fetch("RAILS_ENV") { "production" }
 # end
 #
 
-stdout_redirect '/var/log/api-particulier-admin.log', '/var/log/api-particulier-admin.log', true
+stdout_redirect '/var/log/api-particulier-admin/api-particulier-admin.log', '/var/log/api-particulier-admin/api-particulier-admin.log', true
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

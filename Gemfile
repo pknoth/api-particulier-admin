@@ -29,6 +29,10 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :test do
+  gem 'elasticsearch-extensions'
+end
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

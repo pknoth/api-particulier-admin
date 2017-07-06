@@ -16,7 +16,7 @@ class Logstash
       index: 'logstash-api-particulier-*',
       body: definition.to_hash,
       sort: [{ '@timestamp' => { order: 'desc' } }],
-      size: 100
+      size: 10_000_000
     )
     res['hits']['total']
   end
