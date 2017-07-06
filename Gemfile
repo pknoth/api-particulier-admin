@@ -18,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'mongoid'
+gem 'elasticsearch'
+gem 'elasticsearch-dsl'
 
 gem 'jbuilder', '~> 2.5'
 
