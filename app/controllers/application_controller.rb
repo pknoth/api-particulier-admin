@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::Base
-protect_from_forgery with: :null_session
+  http_basic_authenticate_with name: "octo", password: "jesuissupersecret"
+  protect_from_forgery with: :null_session
 end
