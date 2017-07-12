@@ -6,6 +6,6 @@ RSpec.describe Logstash do
   end
 
   it "returns a number for count" do
-    expect(Logstash.new.count_by_name('test')).to be_kind_of(Fixnum)
+    expect(Logstash.new.count_by_name('test')).to be_kind_of(Integer)
   end
 end

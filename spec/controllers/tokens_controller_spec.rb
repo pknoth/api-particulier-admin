@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe TokensController, type: :controller do
+  let(:user) { 'octo' }
+  let(:password) { 'jesuisupersecret' }
+  before do
+    @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,password)
+  end
 
   let(:valid_attributes) do
     {

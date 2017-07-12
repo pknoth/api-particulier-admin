@@ -1,0 +1,17 @@
+.form
+  = form_for @manager do |f|
+    - if @manager.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@manager.errors.count, "error")} prohibited this manager from being saved:"
+        ul
+          - @manager.errors.full_messages.each do |message|
+            li = message
+
+    .field.form-group
+      = f.text_field :name, class: 'form-control', placeholder: 'Name'
+    .field.form-group
+      = f.password_field :password, class: 'form-control', placeholder: 'Password'
+    .field.form-group
+      = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password confirmation'
+    .actions
+      button.btn.btn-primary.btn-block(type="submit") Save

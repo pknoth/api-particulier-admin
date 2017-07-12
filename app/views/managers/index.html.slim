@@ -1,0 +1,21 @@
+h1 Listing managers
+
+table.table.table-stripped
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @managers.each do |manager|
+      tr
+        td = manager.name
+        td = link_to 'Show', manager, class: 'btn btn-xs btn-default'
+        td = link_to 'Edit', edit_manager_path(manager), class: 'btn btn-xs btn-primary'
+        td = link_to 'Destroy', manager, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-xs btn-danger'
+
+br
+
+= link_to 'New Manager', new_manager_path

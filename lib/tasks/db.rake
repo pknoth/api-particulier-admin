@@ -1,5 +1,5 @@
 namespace :db do
-  desc "TODO"
+  desc "Import legacy keys"
   task import_keys: :environment do
     old_keys = JSON.parse(
       File.read('/etc/api-particulier/tokens/tokens.json')
@@ -13,5 +13,14 @@ namespace :db do
     end.each do |token|
       Token.create(token)
     end
+  end
+
+  desc "seed database"
+  task seed: :environment do
+    p Manager.where(
+      name: 'octo',
+      password: 'jesuissupersecret',
+      password_confirmation: 'jesuissupersecret'
+    ).first_or_create
   end
 end

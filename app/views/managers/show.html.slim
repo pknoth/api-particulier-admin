@@ -1,0 +1,11 @@
+p#notice = notice
+
+p
+  strong Name:
+
+p = @manager.name
+
+= link_to 'Edit', edit_manager_path(@manager)
+span<>
+  | |
+= link_to 'Back', managers_path

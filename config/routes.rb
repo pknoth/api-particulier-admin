@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope path: '/admin' do
+    resources :managers
     resources :tokens
     root 'tokens#index'
   end
