@@ -17,10 +17,11 @@ namespace :db do
 
   desc "seed database"
   task seed: :environment do
+    return unless ENV['SEED_USER'].present? && ENV['SEED_PASSWORD']
     p Manager.where(
-      name: 'octo',
-      password: 'jesuissupersecret',
-      password_confirmation: 'jesuissupersecret'
+      name: ENV['SEED_USER'],
+      password: ENV['SEED_PASSWORD'],
+      password_confirmation: ENV['SEED_PASSWORD']
     ).first_or_create
   end
 end
