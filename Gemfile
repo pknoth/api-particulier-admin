@@ -35,6 +35,7 @@ end
 
 group :test do
   gem 'elasticsearch-extensions'
+  gem 'rails-controller-testing'
 end
 
 group :development do
