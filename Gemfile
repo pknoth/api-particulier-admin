@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bcrypt'
 
+gem 'dotenv'
+
 gem 'mongoid'
 gem 'elasticsearch'
 gem 'elasticsearch-dsl'

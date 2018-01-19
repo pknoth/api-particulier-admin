@@ -1,3 +1,6 @@
+require 'dotenv'
+Dotenv.load
+
 namespace :db do
   desc "Import legacy keys"
   task import_keys: :environment do
@@ -17,6 +20,7 @@ namespace :db do
 
   desc "seed database"
   task seed: :environment do
+    # raise ENV.inspect
     return unless ENV['SEED_USER'].present? && ENV['SEED_PASSWORD']
     p Manager.where(
       name: ENV['SEED_USER'],
