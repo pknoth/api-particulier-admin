@@ -10,7 +10,6 @@ class TokensController < ApplicationController
   # GET /tokens/1
   # GET /tokens/1.json
   def show
-    @log_count = Logstash.new.count_by_name(@token.name)
   end
 
   # GET /tokens/new

@@ -10,13 +10,8 @@ p
   strong Email:
 p
   = @token.email
-p
-  strong> Call count:
-  = @log_count
 
 = link_to 'Edit', edit_token_path(@token)
 span<>
   | |
 = link_to 'Back', tokens_path
-
-
