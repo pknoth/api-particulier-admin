@@ -18,7 +18,6 @@ RSpec.describe "tokens/index", type: :view do
 
   it "renders a list of tokens" do
     render
-    assert_select "tr>td", :text => /Id/, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
   end

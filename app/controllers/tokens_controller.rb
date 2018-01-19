@@ -28,7 +28,7 @@ class TokensController < ApplicationController
 
     respond_to do |format|
       if @token.save
-        format.html { redirect_to @token.reload, notice: 'Token was successfully created.' }
+        format.html { render :show }
         format.json { render :show, status: :created, location: @token.reload }
       else
         format.html { render :new }

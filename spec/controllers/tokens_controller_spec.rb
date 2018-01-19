@@ -64,9 +64,15 @@ RSpec.describe TokensController, type: :controller do
         }.to change(Token, :count).by(1)
       end
 
-      it "redirects to the created token" do
+      it "has a token with clear_id" do
         post :create, params: {token: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Token.last)
+
+        expect(assigns(:token).clear_id).to be_present
+      end
+
+      it "renders to the created token" do
+        post :create, params: {token: valid_attributes}, session: valid_session
+        expect(response).to render_template('tokens/show')
       end
     end
 
