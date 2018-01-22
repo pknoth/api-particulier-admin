@@ -14,7 +14,7 @@ namespace :db do
         email: v['mail']
       }
     end.each do |token|
-      Token.create(token)
+      Token.where(token).first_or_create
     end
   end
 
