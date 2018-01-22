@@ -23,12 +23,12 @@ module Tasks
       hashed_old_tokens.map do |token|
         Token.create!(token)
       end
-      tag_legacy
+      tag_old_tokens
     end
 
     private
 
-    def tag_legacy
+    def tag_old_tokens
       old_tokens.map { |e| e.update_attribute(:hashed, true) }
     end
   end

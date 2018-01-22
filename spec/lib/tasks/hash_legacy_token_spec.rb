@@ -41,7 +41,7 @@ RSpec.describe Tasks::HashLegacyTokens do
         end.to change { Token.count }.by old_tokens_count
       end
 
-      it 'should mark old tokens as legacy' do
+      it 'should mark old tokens as hashed' do
         hasher = described_class.new(tokens)
 
         hasher.duplicate_old_tokens

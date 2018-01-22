@@ -30,7 +30,7 @@ namespace :db do
   end
 
   desc "hash legacy token"
-  task hash_old_tokens: :environment do
+  task hash_legacy_tokens: :environment do
     Tasks::HashLegacyTokens.new(Token.all).duplicate_old_tokens
   end
 end
