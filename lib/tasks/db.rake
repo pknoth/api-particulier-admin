@@ -28,4 +28,9 @@ namespace :db do
       password_confirmation: ENV['SEED_PASSWORD']
     ).first_or_create
   end
+
+  desc "hash legacy token"
+  task hash_old_tokens: :environment do
+    Tasks::HashLegacyTokens.new(Token.all).duplicate_old_tokens
+  end
 end

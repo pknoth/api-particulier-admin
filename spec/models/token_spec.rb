@@ -10,26 +10,26 @@ RSpec.describe Token, type: :model do
 
   describe "I have a token" do
     let(:id) { SecureRandom.hex }
-    let(:token) { Token.create!(name: 'test', email: 'test@test.test', id: id) }
+    let(:token) { Token.create!(name: 'test', email: 'test@test.test',  hashed_token: id) }
 
     it "keeps the id if provided" do
       token_hash = Digest::SHA512.hexdigest(id)
-      expect(token.id).to eq(token_hash)
+      expect(token.hashed_token).to eq(token_hash)
     end
 
     it "stores the SHA512 as id" do
       token_hash = Digest::SHA512.hexdigest(id)
-      expect(token.id).to eq(token_hash)
+      expect(token.hashed_token).to eq(token_hash)
     end
 
     it "returns the id in clear" do
-      expect(token.clear_id).to eq(id)
+      expect(token.clear_token).to eq(id)
     end
 
     it "do not store the clear_id" do
       token
       token = Token.last
-      expect(token.clear_id).to be_nil
+      expect(token.clear_token).to be_nil
     end
   end
 end

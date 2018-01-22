@@ -67,7 +67,7 @@ RSpec.describe TokensController, type: :controller do
       it "has a token with clear_id" do
         post :create, params: {token: valid_attributes}, session: valid_session
 
-        expect(assigns(:token).clear_id).to be_present
+        expect(assigns(:token).clear_token).to be_present
       end
 
       it "renders to the created token" do
