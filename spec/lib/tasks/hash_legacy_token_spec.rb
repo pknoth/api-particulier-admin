@@ -61,12 +61,20 @@ RSpec.describe Tasks::HashLegacyTokens do
         expect(Token.all).to eq(tokens)
       end
 
-      it 'should have all token to hashed to true' do
+      it 'should have all tokens hashed atttribute to true' do
         hasher = described_class.new(tokens)
 
         hasher.duplicate_old_tokens
 
         expect(Token.all).to all(be_hashed)
+      end
+
+      it 'should have old tokens legacy attribute to true' do
+        hasher = described_class.new(tokens)
+
+        hasher.duplicate_old_tokens
+
+        expect(old_tokens.map(&:reload)).to all(be_hashed)
       end
     end
   end

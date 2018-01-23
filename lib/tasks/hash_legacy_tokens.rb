@@ -30,7 +30,10 @@ module Tasks
     private
 
     def tag_old_tokens
-      old_tokens.map { |e| e.update_attribute(:hashed, true) }
+      old_tokens.map do |e|
+        e.update_attribute(:hashed, true)
+        e.update_attribute(:legacy, true)
+      end
     end
   end
 end
