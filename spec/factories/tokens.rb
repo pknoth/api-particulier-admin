@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :token do
-    sequence(:hashed_token) { |n| n }
+    sequence(:clear_token) { |n| n }
     sequence(:name) { |n| "name#{n}" }
     email "MyString"
 

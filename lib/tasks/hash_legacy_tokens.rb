@@ -10,11 +10,12 @@ module Tasks
       res = []
       old_tokens.each do |old_token|
         res << {
-            'hashed_token' => Digest::SHA512.hexdigest(old_token['_id'].to_s),
-            'name' => old_token['name'],
-            'email' => old_token['email'],
-            'hashed' => true
-          }
+          'clear_token' => old_token['_id'],
+          'hashed_token' => Digest::SHA512.hexdigest(old_token['_id'].to_s),
+          'name' => old_token['name'],
+          'email' => old_token['email'],
+          'hashed' => true
+        }
       end
       res
     end

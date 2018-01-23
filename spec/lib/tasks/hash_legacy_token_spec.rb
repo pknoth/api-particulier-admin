@@ -25,6 +25,7 @@ RSpec.describe Tasks::HashLegacyTokens do
         hasher = described_class.new(tokens)
         hashed_tokens = old_tokens.map do |token|
           token.attributes.dup.tap do |token|
+            token['clear_token'] = token['_id']
             token['hashed_token'] = Digest::SHA512.hexdigest(token['_id'].to_s)
             token.delete('_id')
             token['hashed'] = true
@@ -60,7 +61,7 @@ RSpec.describe Tasks::HashLegacyTokens do
         expect(Token.all).to eq(tokens)
       end
 
-      it 'should have all token to hashde to true' do
+      it 'should have all token to hashed to true' do
         hasher = described_class.new(tokens)
 
         hasher.duplicate_old_tokens
