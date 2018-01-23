@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bcrypt'
 
+gem 'dotenv'
+
 gem 'mongoid'
 gem 'elasticsearch'
 gem 'elasticsearch-dsl'
@@ -29,10 +31,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'byebug'
 end
 
 group :test do
   gem 'elasticsearch-extensions'
+  gem 'rails-controller-testing'
 end
 
 group :development do

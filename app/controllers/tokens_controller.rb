@@ -10,7 +10,6 @@ class TokensController < ApplicationController
   # GET /tokens/1
   # GET /tokens/1.json
   def show
-    @log_count = Logstash.new.count_by_name(@token.name)
   end
 
   # GET /tokens/new
@@ -29,7 +28,7 @@ class TokensController < ApplicationController
 
     respond_to do |format|
       if @token.save
-        format.html { redirect_to @token.reload, notice: 'Token was successfully created.' }
+        format.html { render :show }
         format.json { render :show, status: :created, location: @token.reload }
       else
         format.html { render :new }

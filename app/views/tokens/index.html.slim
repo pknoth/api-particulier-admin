@@ -3,7 +3,6 @@ h1 Listing tokens
 table.table.table-stripped
   thead
     tr
-      th Token
       th Name
       th Email
       th
@@ -13,7 +12,6 @@ table.table.table-stripped
   tbody
     - @tokens.each do |token|
       tr
-        td = token._id
         td = token.name
         td = token.email
         td = link_to 'Show', token, class: 'btn btn-xs btn-default'
