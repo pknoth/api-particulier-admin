@@ -5,6 +5,7 @@ class Token
   field :name, type: String
   field :email, type: String
   field :hashed, type: Boolean, default: true
+  field :legacy, type: Boolean
 
   before_create do
     self.clear_token = clear_token.blank? ? SecureRandom.hex : clear_token
