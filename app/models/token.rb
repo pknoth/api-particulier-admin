@@ -6,9 +6,7 @@ class Token
   field :email, type: String
   field :hashed, type: Boolean, default: true
 
-  before_validation :create_hashed_token, on: :create
-
-  def create_hashed_token
+  before_create do
     self.clear_token = clear_token.blank? ? SecureRandom.hex : clear_token
     self.hashed_token = Digest::SHA512.hexdigest(clear_token.to_s) unless hashed_token
   end
